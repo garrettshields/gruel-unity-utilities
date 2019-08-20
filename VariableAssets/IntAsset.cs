@@ -1,18 +1,18 @@
 using System;
 using UnityEngine;
 
-namespace Gruel.VariableObjects {
+namespace Gruel.VariableAssets {
 	[Serializable]
 	public class IntReference {
 
 #region Properties
 		public int Value {
-			get => _intObject == null ? _value : _intObject.Value;
+			get => _intAsset == null ? _value : _intAsset.Value;
 			set {
-				if (_intObject == null) {
+				if (_intAsset == null) {
 					_value = value;
 				} else {
-					_intObject.Value = value;
+					_intAsset.Value = value;
 				}
 			}
 		}
@@ -20,16 +20,16 @@ namespace Gruel.VariableObjects {
 
 #region Fields
 		[SerializeField] private int _value = 0;
-		[SerializeField] private IntObject _intObject;
+		[SerializeField] private IntAsset _intAsset;
 #endregion Fields
 
 #region Public Methods
 		public void AddListener(Action<int, int> onValueChanged) {
-			_intObject.OnValueChanged += onValueChanged;
+			_intAsset.OnValueChanged += onValueChanged;
 		}
 
 		public void RemoveListener(Action<int, int> onValueChanged) {
-			_intObject.OnValueChanged -= onValueChanged;
+			_intAsset.OnValueChanged -= onValueChanged;
 		}
 		
 		public static implicit operator int(IntReference reference) {
@@ -40,7 +40,7 @@ namespace Gruel.VariableObjects {
 	}
 
 	[CreateAssetMenu(menuName = "Gruel/Variables/Int")]
-	public class IntObject : ScriptableObject {
+	public class IntAsset : ScriptableObject {
 
 #region Properties
 		public Action<int, int> OnValueChanged;
@@ -62,8 +62,8 @@ namespace Gruel.VariableObjects {
 #endregion Fields
 
 #region Public Methods
-		public static implicit operator int(IntObject intObject) {
-			return intObject.Value;
+		public static implicit operator int(IntAsset intAsset) {
+			return intAsset.Value;
 		}
 #endregion Public Methods
 

@@ -1,18 +1,18 @@
 using System;
 using UnityEngine;
 
-namespace Gruel.VariableObjects {
+namespace Gruel.VariableAssets {
 	[Serializable]
 	public class StringReference {
 
 #region Properties
 		public string Value {
-			get => _stringObject == null ? _value : _stringObject.Value;
+			get => _stringAsset == null ? _value : _stringAsset.Value;
 			set {
-				if (_stringObject == null) {
+				if (_stringAsset == null) {
 					_value = value;
 				} else {
-					_stringObject.Value = value;
+					_stringAsset.Value = value;
 				}
 			}
 		}
@@ -20,16 +20,16 @@ namespace Gruel.VariableObjects {
 
 #region Fields
 		[SerializeField] private string _value = string.Empty;
-		[SerializeField] private StringObject _stringObject;
+		[SerializeField] private StringAsset _stringAsset;
 #endregion Fields
 
 #region Public Methods
 		public void AddListener(Action<string> onValueChanged) {
-			_stringObject.OnValueChanged += onValueChanged;
+			_stringAsset.OnValueChanged += onValueChanged;
 		}
 
 		public void RemoveListener(Action<string> onValueChanged) {
-			_stringObject.OnValueChanged -= onValueChanged;
+			_stringAsset.OnValueChanged -= onValueChanged;
 		}
 		
 		public static implicit operator string(StringReference reference) {
@@ -43,7 +43,7 @@ namespace Gruel.VariableObjects {
 	}
 
 	[CreateAssetMenu(menuName = "Gruel/Variables/String")]
-	public class StringObject : ScriptableObject {
+	public class StringAsset : ScriptableObject {
 		
 #region Properties
 		public Action<string> OnValueChanged;
@@ -64,8 +64,8 @@ namespace Gruel.VariableObjects {
 #endregion Fields
 
 #region Public Methods
-		public static implicit operator string(StringObject stringObject) {
-			return stringObject.Value;
+		public static implicit operator string(StringAsset stringAsset) {
+			return stringAsset.Value;
 		}
 #endregion Public Methods
 

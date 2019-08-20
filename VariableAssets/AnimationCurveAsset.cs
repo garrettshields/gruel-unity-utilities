@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Gruel.VariableObjects {
+namespace Gruel.VariableAssets {
 	[CreateAssetMenu(menuName = "Gruel/Variables/AnimationCurve")]
-	public class AnimationCurveObject : ScriptableObject {
+	public class AnimationCurveAsset : ScriptableObject {
 
 #region Properties
 		public AnimationCurve Value {
@@ -16,8 +16,8 @@ namespace Gruel.VariableObjects {
 #endregion Fields
 
 #region Public Methods
-		public static implicit operator AnimationCurve(AnimationCurveObject animationCurveObject) {
-			return animationCurveObject.Value;
+		public static implicit operator AnimationCurve(AnimationCurveAsset animationCurveAsset) {
+			return animationCurveAsset.Value;
 		}
 #endregion Public Methods
 

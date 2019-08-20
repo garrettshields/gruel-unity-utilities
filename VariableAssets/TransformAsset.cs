@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace Gruel.VariableObjects {
+namespace Gruel.VariableAssets {
 	[CreateAssetMenu(menuName = "Gruel/Variables/Transform")]
-	public class TransformObject : ScriptableObject {
+	public class TransformAsset : ScriptableObject {
 		
 #region Properties
 		public Action<Transform> OnValueChanged;
@@ -24,8 +24,8 @@ namespace Gruel.VariableObjects {
 #endregion Fields
 
 #region Public Methods
-		public static implicit operator Transform(TransformObject transformObject) {
-			return transformObject.Value;
+		public static implicit operator Transform(TransformAsset transformAsset) {
+			return transformAsset.Value;
 		}
 #endregion Public Methods
 

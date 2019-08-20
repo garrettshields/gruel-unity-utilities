@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace Gruel.VariableObjects {
-	[CreateAssetMenu(menuName = "Gruel/Events/EventObjectBool")]
-	public class EventObjectBool : ScriptableObject {
+namespace Gruel.VariableAssets {
+	[CreateAssetMenu(menuName = "Gruel/Events/EventBool")]
+	public class EventBoolAsset : ScriptableObject {
 
 #region Fields
 		private Action<bool> _action;

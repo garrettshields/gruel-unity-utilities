@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace Gruel.VariableObjects {
-	[CreateAssetMenu(menuName = "Gruel/Events/EventObjectTransform")]
-	public class EventObjectTransform : ScriptableObject {
+namespace Gruel.VariableAssets {
+	[CreateAssetMenu(menuName = "Gruel/Events/EventTransform")]
+	public class EventTransformAsset : ScriptableObject {
 		
 #region Fields
 		private Action<Transform> _action;
