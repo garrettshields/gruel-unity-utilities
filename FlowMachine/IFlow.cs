@@ -6,6 +6,7 @@ namespace Gruel.FlowMachine {
 #region Properties
 		string FlowName { get; }
 		bool ShouldRun { get; }
+		bool IsRunning { get; }
 #endregion Properties
 		
 #region Methods
